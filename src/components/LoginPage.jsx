@@ -1,39 +1,38 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 
-const RegisterPage = () => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [passConfirm, setpassConfirm] = useState("");
+const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
 
   const validarDatos = (e) => {
     e.preventDefault();
-    if (!email.trim() || !pass.trim() || !passConfirm.trim()) {
+    if (!email.trim() || !pass.trim()) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Debe Ingresar todos los campos, para continuar!",
       });
+      return
     } else if (pass.length < 6) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Contraseña debe ser contener 6 caracter como minimo.",
       });
-    } else if (pass.trim() != passConfirm.trim()) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Contraseñas no son identicas, corregir.",
-      });
+      return
     } else {
       Swal.fire({
-        title: "Se registro correctamente!",
+        title: "Ingreso exito!</br> Vamos a comer Pizza!!!",
         icon: "success",
         draggable: true,
       });
-    //   e.currentTarget.reset();
     }
+    
+    setEmail('');
+    setPass('');
+
+    // e.currentTarget.reset();
   };
 
   return (
@@ -44,9 +43,17 @@ const RegisterPage = () => {
             <div class="card text-black">
               <div class="card-body p-md-1">
                 <div class="row justify-content-center">
-                  <div class="col-md-10 col-lg-6 col-xl-6 order-2 order-lg-1">
+                  <div class="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-1">
+                    <img
+                      src="/src/assets/img/imgPizza.avif"
+                      class="img-fluid"
+                      alt="Imagen Pizza"
+                    />
+                  </div>
+
+                  <div class="col-md-10 col-lg-6 col-xl-6 order-2 order-lg-2">
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                      Registro de clientes
+                      Ingresos de clientes
                     </p>
 
                     <form onSubmit={validarDatos} class="mx-1 mx-md-4">
@@ -61,9 +68,7 @@ const RegisterPage = () => {
                             class="form-control"
                             id="ControlInput1"
                             placeholder="name@example.com"
-                            onChange={(e) => {
-                              setEmail(e.target.value);
-                            }}
+                            onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
                       </div>
@@ -86,40 +91,12 @@ const RegisterPage = () => {
                         </div>
                       </div>
 
-                      <div class="d-flex flex-row align-items-center mb-4 ">
-                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0 text-start">
-                          <label for="inputPassword1" class="form-label">
-                            Confirmar contraseña
-                          </label>
-                          <input
-                            type="password"
-                            id="inputPassword1"
-                            class="form-control"
-                            placeholder="Repita contraseña"
-                            onChange={(e) => {
-                              setpassConfirm(e.target.value);
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div id="passwordHelpBlock" class="form-text text-start">
-                        La contraseña debe tener al menos 6 caracteres.
-                      </div>
-
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-5">
                         <button type="submit" class="btn btn-primary btn-lg">
-                          Enviar
+                          Iniciar Sesión
                         </button>
                       </div>
                     </form>
-                  </div>
-                  <div class="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">
-                    <img
-                      src="/src/assets/img/imgPizza.avif"
-                      class="img-fluid"
-                      alt="Imagen Pizza"
-                    />
                   </div>
                 </div>
               </div>
@@ -131,4 +108,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

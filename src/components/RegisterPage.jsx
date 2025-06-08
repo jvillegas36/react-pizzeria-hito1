@@ -14,25 +14,32 @@ const RegisterPage = () => {
         title: "Oops...",
         text: "Debe Ingresar todos los campos, para continuar!",
       });
+      return
     } else if (pass.length < 6) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Contraseña debe ser contener 6 caracter como minimo.",
       });
+      return
     } else if (pass.trim() != passConfirm.trim()) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Contraseñas no son identicas, corregir.",
       });
+      return
     } else {
       Swal.fire({
         title: "Se registro correctamente!",
         icon: "success",
         draggable: true,
       });
-    //   e.currentTarget.reset();
+      setEmail('');
+      setPass('');
+      setpassConfirm('');
+      e.currentTarget.reset();
+      return
     }
   };
 

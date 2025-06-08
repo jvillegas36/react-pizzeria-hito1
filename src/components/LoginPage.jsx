@@ -21,18 +21,20 @@ const LoginPage = () => {
         text: "Contraseña debe ser contener 6 caracter como minimo.",
       });
       return
-    } else {
+    } else {     
       Swal.fire({
         title: "Ingreso exito!</br> Vamos a comer Pizza!!!",
         icon: "success",
         draggable: true,
       });
+            
+      setEmail('');
+      setPass('');
+      e.currentTarget.reset();
+      return
     }
     
-    setEmail('');
-    setPass('');
 
-    // e.currentTarget.reset();
   };
 
   return (

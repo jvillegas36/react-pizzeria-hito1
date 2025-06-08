@@ -6,38 +6,36 @@ const RegisterPage = () => {
   const [pass, setPass] = useState("");
   const [passConfirm, setpassConfirm] = useState("");
 
-    const validarDatos = (e) => {
-        e.preventDefault();
-        if (!email.trim() || !pass.trim() || !passConfirm.trim()) {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Debe Ingresar todos los campos, para continuar!",
-            });
-        } else if (pass.length < 6) {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Contraseña debe ser contener 6 caracter como minimo.",
-            });
-        } else if (pass.trim() != passConfirm.trim()) {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Contraseñas no son identicas, corregir.",
-            });
-        } else {
-            Swal.fire({
-                title: "Se registro correctamente!",
-                icon: "success",
-                draggable: true,
-            });
-            e.currentTarget.reset()
-        }
-
-
+  const validarDatos = (e) => {
+    e.preventDefault();
+    if (!email.trim() || !pass.trim() || !passConfirm.trim()) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Debe Ingresar todos los campos, para continuar!",
+      });
+    } else if (pass.length < 6) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Contraseña debe ser contener 6 caracter como minimo.",
+      });
+    } else if (pass.trim() != passConfirm.trim()) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Contraseñas no son identicas, corregir.",
+      });
+    } else {
+      Swal.fire({
+        title: "Se registro correctamente!",
+        icon: "success",
+        draggable: true,
+      });
+      e.currentTarget.reset();
     }
-        
+  };
+
   return (
     <section class="my-5">
       <div class="container h-100">

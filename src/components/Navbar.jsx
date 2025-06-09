@@ -28,11 +28,10 @@ const Navbar = () => {
               </button>
             </li>
 
-            <li class="nav-item">
+            {token == false? <>
+                        <li class="nav-item">
               <button
-                className={`btn btn-outline-light mx-1 ${
-                  token == false ? "d-none" : "null"
-                }`}
+                className={`btn btn-outline-light mx-1 `}
                 type="submit"
               >
                 🔓Profile
@@ -40,20 +39,16 @@ const Navbar = () => {
             </li>
             <li class="nav-item dropdown">
               <button
-                className={`btn btn-outline-light mx-1 ${
-                  token == false ? "d-none" : "null"
-                }`}
+                className={`btn btn-outline-light mx-1 `}
                 type="submit"
               >
                 🔒Logout
               </button>
             </li>
-
+            </> : <>
             <li class="nav-item">
               <button
-                className={`btn btn-outline-light mx-1 ${
-                  token == true ? "d-none" : "null"
-                }`}
+                className={`btn btn-outline-light mx-1 `}
                 type="submit"
               >
                 🔐Login
@@ -62,18 +57,21 @@ const Navbar = () => {
 
             <li class="nav-item">
               <button
-                className={`btn btn-outline-light mx-1 ${
-                  token == true ? "d-none" : "null"
-                }`}
+                className={`btn btn-outline-light mx-1 `}
                 type="submit"
               >
                 🔐Register
               </button>
             </li>
+            
+            </>}
+
+
+
           </ul>
           <form class="d-flex">
             <button class="btn btn-outline-info" type="submit">
-               🛒Total: ${Intl.NumberFormat().format(total)}
+              🛒Total: ${Intl.NumberFormat().format(total)}
             </button>
           </form>
         </div>

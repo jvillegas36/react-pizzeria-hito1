@@ -38,7 +38,7 @@ const RegisterPage = () => {
       setEmail('');
       setPass('');
       setpassConfirm('');
-      e.currentTarget.reset();
+      // e.currentTarget.reset();
       return
     }
   };
@@ -65,6 +65,7 @@ const RegisterPage = () => {
                           </label>
                           <input
                             type="email"
+                            value={email}
                             class="form-control"
                             id="ControlInput1"
                             placeholder="name@example.com"
@@ -83,6 +84,7 @@ const RegisterPage = () => {
                           </label>
                           <input
                             type="password"
+                            value={pass}
                             class="form-control"
                             id="inputPassword"
                             placeholder="Ingrese Contraseña"
@@ -101,6 +103,7 @@ const RegisterPage = () => {
                           </label>
                           <input
                             type="password"
+                            value={passConfirm}
                             id="inputPassword1"
                             class="form-control"
                             placeholder="Repita contraseña"

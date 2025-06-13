@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 }
+
+.ulFormat{
+  width: 100%;
+  list-style-type: none;
+
+   display: block;
+  margin-top: 1em;
+  margin-bottom: 1 em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0px;
+}
+
+.liFormat{
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 0em;
+}
+
+.hrFormat{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}

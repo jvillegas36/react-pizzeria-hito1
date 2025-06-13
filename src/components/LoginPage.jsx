@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
   const validarDatos = (e) => {
     e.preventDefault();
@@ -30,8 +30,8 @@ const LoginPage = () => {
             
       setEmail('');
       setPass('');
-      e.currentTarget.reset();
       return
+      // e.currentTarget.reset();
     }
     
 
@@ -67,6 +67,7 @@ const LoginPage = () => {
                           </label>
                           <input
                             type="email"
+                            value={email}
                             class="form-control"
                             id="ControlInput1"
                             placeholder="name@example.com"
@@ -83,6 +84,7 @@ const LoginPage = () => {
                           </label>
                           <input
                             type="password"
+                            value={pass}
                             class="form-control"
                             id="inputPassword"
                             placeholder="Ingrese Contraseña"

@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import CardPizza from "./CardPizza";
-import {pizzas} from "../assets/pizzas.js";
+// import {pizzas} from "../assets/pizzas.js";
 
 
 const Home = () => {
+  const [pizzas, setPizzas] = useState([])
+  useEffect(() => {
+    consultaApi()
+  }, [])
+  
+  const consultaApi = async () => {
+    const url = "http://localhost:5000/api/pizzas";
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+    setPizzas(data);
+  }
+
   return (
     <>
-      <Header />
-
+      <Header />     
       <main class="container">
         <section class="row">
           {pizzas.map(piz =>

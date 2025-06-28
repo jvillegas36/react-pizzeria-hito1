@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const total = 25000;
@@ -23,45 +24,45 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
             <li className="nav-item">
-              <button className="btn btn-outline-light mx-1" type="submit">
+              <Link className="btn btn-outline-light mx-1" type="submit" to="/">
                 🍕Home
-              </button>
+              </Link>
             </li>
 
             {token == false? <>
                         <li className="nav-item">
-              <button
+              <Link
                 className={`btn btn-outline-light mx-1 `}
-                type="submit"
+                type="submit" to="profile"
               >
                 🔓Profile
-              </button>
+              </Link>
             </li>
             <li className="nav-item dropdown">
-              <button
+              <Link
                 className={`btn btn-outline-light mx-1 `}
-                type="submit"
+                type="submit" 
               >
                 🔒Logout
-              </button>
+              </Link>
             </li>
             </> : <>
             <li className="nav-item">
-              <button
+              <Link
                 className={`btn btn-outline-light mx-1 `}
-                type="submit"
+                type="submit" to="login"
               >
                 🔐Login
-              </button>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <button
+              <Link
                 className={`btn btn-outline-light mx-1 `}
-                type="submit"
+                type="submit" to="register"
               >
                 🔐Register
-              </button>
+              </Link>
             </li>
             
             </>}
@@ -70,9 +71,9 @@ const Navbar = () => {
 
           </ul>
           <form className="d-flex">
-            <button className="btn btn-outline-info" type="submit">
+            <Link className="btn btn-outline-info" type="submit" to="cart">
               🛒Total: ${Intl.NumberFormat().format(total)}
-            </button>
+            </Link>
           </form>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { pizzaCart } from "../assets/pizzas";
 
-const Cart = () => {
+const CartPage = () => {
   const [carro, setCarro] = useState(pizzaCart);
   const editPizza = [...carro];
 
@@ -76,4 +76,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

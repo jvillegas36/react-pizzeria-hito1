@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import CardPizza from "./CardPizza";
-// import {pizzas} from "../assets/pizzas.js";
+import Header from "../components/Header";
+import CardPizza from "../components/CardPizza";
 
-
-const Home = () => {
+const HomePage = () => {
   const [pizzas, setPizzas] = useState([])
   useEffect(() => {
     consultaApi()
@@ -41,4 +39,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

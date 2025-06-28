@@ -32,3 +32,36 @@ footer {
   width: 80%;
 }
 
+/* Not Found */
+
+#container-noPage{
+  background: linear-gradient(to right,rgb(123, 125, 255), rgb(196,0,0));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.notPage{
+  color:#fff;
+  font-size: 15rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub-notPage{
+  color:#fff;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.art-notPage{
+  width: 80%;
+  color:#fff;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

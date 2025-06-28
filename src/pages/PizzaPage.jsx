@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Pizza = () => {
+const PizzaPage = () => {
   const [pizza, setPizza] = useState([]);
   useEffect(() => {
     consultaApi();
@@ -38,7 +38,7 @@ const Pizza = () => {
             </div>
 
             <div className="mt-5">
-              <button type="button" class="btn btn-success btn-outline-info">
+              <button type="button" className="btn btn-success btn-outline-info">
                 Añadir a Carrito 🛒
               </button>
             </div>
@@ -49,4 +49,4 @@ const Pizza = () => {
   );
 };
 
-export default Pizza;
+export default PizzaPage;

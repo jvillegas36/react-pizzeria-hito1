@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CardPizza = (props) => {
   return (
@@ -25,9 +26,9 @@ const CardPizza = (props) => {
         </p>
         <div class="row mt-4">
           <div class="col-6">
-            <button type="button" class="btn btn-outline-dark">
+            <Link type="button" class="btn btn-outline-dark" to="pizza">
               Ver Más 👀
-            </button>
+            </Link>
           </div>
 
           <div class="col-6">

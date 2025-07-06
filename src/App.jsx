@@ -22,7 +22,7 @@ function App() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage/>} />
         <Route path="profile" element={<ProfilePage/>} />
-        <Route path="pizza" element={<PizzaPage/>} />
+        <Route path="/pizza/:id" element={<PizzaPage/>} />
         
         <Route path="cart" element={<CartPage/>} />
         <Route path="*" element={<NotFoundPage />} /> {/* /404 */}

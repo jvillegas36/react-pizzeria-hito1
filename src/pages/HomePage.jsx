@@ -1,24 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Header from "../components/Header";
 import CardPizza from "../components/CardPizza";
 import { CartContext } from "../context/CartContext";
+import { ConxPizzasContext } from "../context/ConxPizzaContext";
 
 const HomePage = () => {
   const { addToCart } = useContext(CartContext)
+  const { pizzas, loading, error } = useContext(ConxPizzasContext);
   
-  const [pizzas, setPizzas] = useState([])
-  useEffect(() => {
-    consultaApi()
-  }, [])
+  if (loading) return <p>Cargando pizzas…</p>;
+  if (error) return <p>Error: {error}</p>;
   
-  const consultaApi = async () => {
-    const url = "http://localhost:5000/api/pizzas";
-    const response = await fetch(url);
-    const data = await response.json();
-    // console.log(data);
-    setPizzas(data);
-  }
-
   return (
     <>
       <Header />     
@@ -26,7 +18,8 @@ const HomePage = () => {
         <section className="row" >
           {pizzas.map(piz =>
            <article key={piz.id}  className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 my-4"  >
-            <CardPizza
+              <CardPizza
+                id={piz.id} 
                 name={piz.name}
                 price={piz.price}
                 ingredients={piz.ingredients}

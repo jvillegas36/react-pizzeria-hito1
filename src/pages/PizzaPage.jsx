@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ConxPizzasContext } from "../context/ConxPizzaContext";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const PizzaPage = () => {
-  const [pizza, setPizza] = useState([]);
-  useEffect(() => {
-    consultaApi();
-  }, []);
+  const { id } = useParams();
 
-  const consultaApi = async () => {
-    const url = "http://localhost:5000/api/pizzas/p001";
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    setPizza(data);
-  };
+  const { fetchById } = useContext(ConxPizzasContext);
+  const { addToCart } = useContext(CartContext);
+
+  const [pizza, setPizza] = useState(null);
+
+  useEffect(() => {
+    const obtenerPizza = async () => {
+      if (!id) return;
+      const data = await fetchById(id);
+      setPizza(data);
+    };
+    obtenerPizza();
+  }, [id,fetchById]);
+
+  if (!pizza) return <p>No se encontró la pizzaaaaaa.</p>;
 
   return (
     <div className="d-flex justify-content-center">
@@ -33,12 +41,16 @@ const PizzaPage = () => {
             <div className="row mt-3 text-capitalize">
               Ingredientes: {pizza.ingredients?.join(", ")}
             </div>
-            <div className="row mt-3 text-start fs-6 fw-lighter" >
+            <div className="row mt-3 text-start fs-6 fw-lighter">
               {pizza.desc}
             </div>
 
             <div className="mt-5">
-              <button type="button" className="btn btn-success btn-outline-info">
+              <button
+                type="button"
+                className="btn btn-success btn-outline-info"
+                 onClick={() => addToCart(pizza)} 
+              >
                 Añadir a Carrito 🛒
               </button>
             </div>

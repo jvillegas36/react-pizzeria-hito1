@@ -2,14 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CardPizza = (props) => {
+
+
   return (
-    <div class="card mx-2">
-      <img src={props.img} class="card-img-top" alt="Pizza 1" />
-      <div class="card-body">
-        <h5 class="card-title fw-bold mb-3 text-start text-capitalize">Pizza {props.name}</h5>
+    <div className="card mx-2" key={props.id} >
+      <img src={props.img} className="card-img-top" alt="Pizza 1" />
+      <div className="card-body">
+        <h5 className="card-title fw-bold mb-3 text-start text-capitalize">Pizza {props.name}</h5>
         <hr />
         Ingredientes:
-        <p class="card-text h6 fw-light mt-2">
+        <div className="card-text h6 fw-light mt-2">
           {/* 🍕{props.ingredients.join(", ")} */}
           <ul className="ulFormat">
             {props.ingredients.map(ing =>
@@ -19,20 +21,22 @@ const CardPizza = (props) => {
             </li>          
           )}
           </ul>
-        </p>
+        </div>
         {/* <hr /> */}
-        <p class="card-text h5 ">
+        <p className="card-text h5 ">
           Precio: ${Intl.NumberFormat().format(props.price)}
         </p>
-        <div class="row mt-4">
-          <div class="col-6">
-            <Link type="button" class="btn btn-outline-dark" to="pizza">
+        <div className="row mt-4">
+          <div className="col-6">
+            <Link type="button" className="btn btn-outline-dark" to="pizza">
               Ver Más 👀
             </Link>
           </div>
 
-          <div class="col-6">
-            <button type="button" class="btn btn-dark">
+          <div className="col-6">
+            <button type="button" className="btn btn-dark"
+               onClick={props.pizzaAdd}
+              >
               Añadir 🛒
             </button>
           </div>

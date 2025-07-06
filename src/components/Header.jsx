@@ -3,16 +3,16 @@ import React from "react";
 const Header = () => {
   return (
 
-    <header class="header-cabecera ">
-      <div class="header-content mx-0 row justify-content-center">
-        <div class="row align-items-end">
+    <header className="header-cabecera ">
+      <div className="header-content mx-0 row justify-content-center">
+        <div className="row align-items-end">
           <h1>¡Pizzería Mamma Mia!</h1>
         </div>
 
-        <div class="row ">
+        <div className="row ">
           <p>¡Tenemos las mejores pizzas que podrás encontrar!</p>
         </div>
-        <hr class="header-hr"/>
+        <hr className="header-hr"/>
       </div>
     </header>
   );
